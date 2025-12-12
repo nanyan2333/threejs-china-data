@@ -1,4 +1,17 @@
 import { Object3D } from "three";
+// 一条记录：必含“时间”，其余任何地区名→字符串
+type DataRow = {
+  时间: string;
+  [region: string]: string;   // 动态地区字段
+};
+
+// 整个接口：键是指标名，值是上面那种数组
+export type ApiData = Record<string, DataRow[]>;
+export interface chartData {
+  name: string;
+  time: string[]
+  value: number[];
+}
 
 export interface GeoJsonType {
   type: "FeatureCollection";
